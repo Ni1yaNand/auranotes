@@ -1,0 +1,19 @@
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-screen flex">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-start">
+    <!-- Left Content (Text and Button) -->
+    <div class="flex flex-col justify-start items-start space-y-6 pt-16">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-black leading-tight">
+        Aura Notes
+      </h1>
+      <h2 class="text-lg sm:text-xl lg:text-2xl font-light text-black">
+        Effortlessly organize your notes
+      </h2>
+      <%= link_to 'Get Started', new_user_registration_path, class: 'text-xl border border-black rounded-md py-2 px-6 hover:-ml-1 hover:-mt-1 hover:border-b-4 hover:border-r-4 transition-all duration-150' %>
+    </div>
+
+    <!-- Right Content (Image) -->
+    <div class="flex justify-center items-center mt-8">
+      <%= image_tag 'aura_notes_graphic.svg', class: 'w-full h-auto max-h-screen object-contain' %>
+    </div>
+  </div>
+</div>

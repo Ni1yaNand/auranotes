@@ -1,0 +1,61 @@
+<div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-white text-black p-8 shadow-lg rounded-lg">
+    <!-- App Name Heading -->
+    <div>
+      <h1 class="text-center text-4xl font-bold text-black">Aura Notes</h1>
+    </div>
+
+    <!-- Login Form Section -->
+    <div>
+      <h2 class="text-center text-3xl font-bold">Login to Your Account</h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Or
+        <a href="<%= new_registration_path(resource_name) %>" class="font-medium text-black hover:underline">
+          Create a new account
+        </a>
+      </p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="space-y-4">
+        <!-- Email Field -->
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "you@example.com",
+              class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black sm:text-sm" %>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••••",
+              class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black sm:text-sm" %>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="flex items-center">
+          <%= f.check_box :remember_me, class: "h-4 w-4 text-black focus:ring-black border-gray-300 rounded" %>
+          <label for="remember_me" class="ml-2 block text-sm text-gray-700">
+            Remember me
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-6">
+        <button class="w-full border border-black rounded-md py-2 px-6 hover:border-b-4 hover:border-r-4">
+          <%= f.submit "Log In", class: "w-full text-center bg-transparent" %>
+        </button>
+      </div>
+
+      <!-- Forgot Password -->
+      <div class="mt-4 text-center">
+        <a href="<%= new_password_path(resource_name) %>" class="text-sm text-black font-medium hover:underline">
+          Forgot your password?
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

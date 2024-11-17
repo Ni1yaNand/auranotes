@@ -1,0 +1,46 @@
+<div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-white text-black p-8 shadow-lg rounded-lg">
+    <div>
+      <h1 class="text-center text-4xl font-bold text-black">Aura Notes</h1>
+    </div>
+
+    <div>
+      <h2 class="text-center text-3xl font-bold">Forgot your password?</h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Enter your email address below, and we'll send you instructions to reset your password.
+      </p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="space-y-4">
+        <!-- Email Field -->
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "you@example.com",
+              class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black sm:text-sm" %>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-6">
+        <button class="w-full border border-black rounded-md py-2 px-6 hover:border-b-4 hover:border-r-4">
+          <%= f.submit "Send Reset Instructions", class: "w-full text-center bg-transparent" %>
+        </button>
+      </div>
+    <% end %>
+
+    <!-- Login and Signup Buttons -->
+    <div class="mt-6 flex flex-col space-y-4">
+      <a href="<%= new_session_path(resource_name) %>" 
+         class="w-full text-center border border-black rounded-md py-2 px-6 hover:border-b-4 hover:border-r-4">
+        Login
+      </a>
+      <a href="<%= new_registration_path(resource_name) %>" 
+         class="w-full text-center border border-black rounded-md py-2 px-6 hover:border-b-4 hover:border-r-4">
+        Signup
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div id="<%= dom_id note %>" class="border border-gray-300 shadow-md rounded-lg py-6 bg-white <%= note.color %>">
+
+  <p class="text-3xl px-6 font-semibold text-black mb-4">
+    <%= note.title %>
+  </p>
+
+  <div class="border-t border-gray-300 w-full"></div>
+
+ 
+  <p class="text-base px-6 py-4 text-gray-700 leading-relaxed">
+    <%= note.description %>
+  </p>
+
+  <% if action_name != "show" %>
+    <div class="flex items-center gap-4 px-6 mt-4">
+      <%= link_to "Show this note", note, 
+        class: "rounded-md py-2 px-6 bg-gray-100 text-black border border-gray-300 font-medium hover:bg-gray-200 hover:border-gray-400 transition-all duration-200" %>
+      
+      <%= link_to "Edit this note", edit_note_path(note), 
+        class: "rounded-md py-2 px-6 bg-blue-500 text-white font-medium hover:bg-blue-600 transition-all duration-200" %>
+    </div>
+    
+    <hr class="mt-6 border-gray-200">
+  <% end %>
+</div>
